@@ -71,7 +71,7 @@ passport.use(
                 });
               }
 
-              let user = new User();
+              var user = new User();
               user.name = profile.displayName;
               user.email = profile.emails[0].value;
               user.facebookId = profile.idea;
