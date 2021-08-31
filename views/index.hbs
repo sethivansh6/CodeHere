@@ -1,0 +1,11 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+
+{{#if user}}
+<form action="/createTask" method="POST" style="width: 150px;">
+  <input type="text" name="title" class="form-control" placeholder="Title for the task" required>
+  </br>
+  <button type="submit" class="btn btn-primary">Create New Task</button>
+</form>
+{{/if}}

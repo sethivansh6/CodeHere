@@ -1,0 +1,31 @@
+{{#if message}}
+<div class="alert alert-success">
+    <strong>{{message}}</strong>
+</div>
+{{/if}}
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Task Title</th>
+                <th scope="col">Date</th>
+                <th scope="col">Invite</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tasks}}
+            <tr>
+                <td><a href="/task/{{this._id}}">{{this.title}}</a></td>
+                <td>{{this.createdAt}}</td>
+                <td><form action="/invite/{{this._id}}" method="POST">
+                    <input type="email" name="email" placeholder="Email to invite" required>
+                    <button type="submit" class="btn-small btn-primary">Invite</button>
+                </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

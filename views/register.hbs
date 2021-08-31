@@ -1,0 +1,26 @@
+<form class="form-signin" method="POST">
+
+    {{#each errorMessages}}
+    <div class="alert alert-danger">
+        {{this.msg}} for <strong>{{param}}</strong>
+    </div>
+    {{/each}}
+
+    <h2 class="form-signin-heading text-center"> New Account</h2>
+    <br />
+
+    <input type="text" name="name" class="form-control" placeholder="Name" >
+    <br />
+    <input type="email" name="email" class="form-control" placeholder="Email" >
+    <br />
+    <input type="password" name="password" class="form-control" placeholder="Password" >
+    <br />
+    <input type="password" name="cnfPassword" class="form-control" placeholder="Confirm Password" >
+    <br />
+
+    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+    <br />
+    <!--<h4 class="text-center">Or</h4>
+    <br />
+    <a href="/auth/facebook" class="btn btn-success btn-block">Sign Up with Facebook</a>-->
+</form>
