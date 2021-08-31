@@ -12,9 +12,8 @@ const LocalStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
 const session = require("express-session");
 const app = express();
-const config = require("./config");
 
-mongoose.connect(config.mongoString, {
+mongoose.connect(process.env.mongoString, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
@@ -40,7 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
-    secret: config.sessionKey,
+    secret: process.env.sessionKey,
     resave: true,
     saveUninitialized: true,
   })

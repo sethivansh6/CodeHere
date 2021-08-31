@@ -1,7 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
-const config = require("./config");
 
 passport.serializeUser(function (user, done) {
   done(null, user._id);
@@ -46,8 +45,8 @@ passport.use(
 passport.use(
   new FacebookStrategy(
     {
-      clientID: config.facebookClient,
-      clientSecret: config.facebookSecret,
+      clientID: process.env.facebookClient,
+      clientSecret: process.env.facebookSecret,
       callbackURL: "http://localhost:3000/auth/facebook/callback",
       profileFields: ["id", "displayName", "email"],
     },
